@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Goat" Class="GoatDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=LENOVO-PC;Initial Catalog=Goat;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="GoatConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ADMIN" Member="ADMIN">
+    <Type Name="ADMIN">
+      <Column Name="adminId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SUGGESTION" Member="SUGGESTION">
+    <Type Name="SUGGESTION">
+      <Column Name="suggestionId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="suggestionContent" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[USER]" Member="USER">
+    <Type Name="USER">
+      <Column Name="userId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="phone" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(24) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.USER_PROFILE" Member="USER_PROFILE">
+    <Type Name="USER_PROFILE">
+      <Column Name="userId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="userName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="headImage" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="gender" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="birth" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.REF_USER_HOUSEINFO" Member="REF_USER_HOUSEINFO">
+    <Type Name="REF_USER_HOUSEINFO">
+      <Column Name="refId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="userId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="houseId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="step" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="price" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="state" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HOUSE_INFO" Member="HOUSE_INFO">
+    <Type Name="HOUSE_INFO">
+      <Column Name="houseId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="hostId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="style" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="limit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="houseName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="houseDescription" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="city" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="province" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="street" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="equipment" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="photo" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="safty" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="startDate" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="endDate" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bedroom" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bed" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="restroom" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="postCode" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="department" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="must" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TV" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="airCondition" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="kiction" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="network" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="wifi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="time" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bath" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="wash" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="swimmingPool" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="breakfast" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="carPark" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="workout" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="lift" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="guard" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="children" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="smoke" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="party" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pet" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="disable" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="smokeAlert" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="coAlert" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="aid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="aidCard" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fire" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="lock" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fireLocation" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="fireAlertLocation" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="coEnd" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="exitLocation" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="aidCall" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="fireCall" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="policeCall" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="price" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="cellphone" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="weixin" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="passState" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="lat" Type="System.Decimal" DbType="Decimal(20,17)" CanBeNull="true" />
+      <Column Name="lng" Type="System.Decimal" DbType="Decimal(20,17)" CanBeNull="true" />
+      <Column Name="foodGuide" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="shopGuide" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="spotGuide" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="translate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ticket" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="foodMake" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="brorrowCar" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="engage" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.COMMENT" Member="COMMENT">
+    <Type Name="COMMENT">
+      <Column Name="commentId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="houseId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="commentContent" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="userId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="commentDate" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="star" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="photo" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.COLLECCTION" Member="COLLECCTION">
+    <Type Name="COLLECCTION">
+      <Column Name="collectionId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="houseId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="userId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="housePic" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="houseName" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="startDate" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="endDate" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="price" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="province" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="city" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="lat" Type="System.Decimal" DbType="Decimal(20,17)" CanBeNull="true" />
+      <Column Name="lng" Type="System.Decimal" DbType="Decimal(20,17)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HOUSE_ORDER" Member="HOUSE_ORDER">
+    <Type Name="HOUSE_ORDER">
+      <Column Name="orderId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="hostId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="customerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="houseId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="orderDate" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="state" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="price" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="startDate" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="endDate" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="houseName" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="housePic" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="stateHintCustomer" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="stateNameCustomer" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="stateNameHost" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="isShowCustomer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="isShowHost" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="stateHintHost" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="customerCheck" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
