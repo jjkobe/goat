@@ -226,6 +226,16 @@
             $("#map a").click(function () {
                 $("#listDiv").hide();
                 $("#mapDiv").show();
+                $.ajax({
+                    url: "likething.aspx/getLocation",
+                    type: "post",
+                    dataType: "json",
+                    contentType: "application/json;charset=utf-8",
+                    data:{},
+                    success: function (data) {
+                        console.log(data.d);
+                    }
+                });
             });
         })
     </script>
