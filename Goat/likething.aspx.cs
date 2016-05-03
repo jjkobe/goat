@@ -75,7 +75,7 @@ public partial class likething : System.Web.UI.Page
                               where h.houseId == c.houseId
                               select h;
             HOUSE_INFO house = resultHouse.FirstOrDefault();
-            json = json + "{\"lng\":\"" + house.lng + "\",\"lat\":\"" + house.lat + "\"},"; 
+            json = json + "{\"lng\":\"" + house.lng + "\",\"lat\":\"" + house.lat + "\",\"name\":\""+house.houseName+"\",\"price\":\""+house.price+"\"},"; 
         }
         json = json.Substring(0, json.Length - 1);
         json = json + "]}";

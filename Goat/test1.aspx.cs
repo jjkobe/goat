@@ -14,6 +14,9 @@ public partial class test1 : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        Response.Redirect("~/test.aspx");
+        //Response.Redirect("~/test.aspx");
+        WebService service = new WebService();
+        string ans = service.Pay("jjkobe", 12);
+        Label1.Text = ans;
     }
 }
