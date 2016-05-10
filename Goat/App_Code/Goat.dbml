@@ -42,6 +42,55 @@
       <Column Name="state" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.COMMENT" Member="COMMENT">
+    <Type Name="COMMENT">
+      <Column Name="commentId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="houseId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="commentContent" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="userId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="commentDate" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="star" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="photo" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.COLLECCTION" Member="COLLECCTION">
+    <Type Name="COLLECCTION">
+      <Column Name="collectionId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="houseId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="userId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="housePic" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="houseName" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="startDate" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="endDate" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="price" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="province" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="city" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="lat" Type="System.Decimal" DbType="Decimal(20,17)" CanBeNull="true" />
+      <Column Name="lng" Type="System.Decimal" DbType="Decimal(20,17)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HOUSE_ORDER" Member="HOUSE_ORDER">
+    <Type Name="HOUSE_ORDER">
+      <Column Name="orderId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="hostId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="customerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="houseId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="orderDate" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="state" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="price" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="startDate" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="endDate" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="houseName" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="housePic" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="stateHintCustomer" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="stateNameCustomer" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="stateNameHost" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="isShowCustomer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="isShowHost" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="stateHintHost" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="customerCheck" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.HOUSE_INFO" Member="HOUSE_INFO">
     <Type Name="HOUSE_INFO">
       <Column Name="houseId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -101,8 +150,8 @@
       <Column Name="cellphone" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="weixin" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="passState" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="lat" Type="System.Decimal" DbType="Decimal(20,17)" CanBeNull="true" />
-      <Column Name="lng" Type="System.Decimal" DbType="Decimal(20,17)" CanBeNull="true" />
+      <Column Name="lat" Type="System.Decimal" DbType="Decimal(9,6)" CanBeNull="true" />
+      <Column Name="lng" Type="System.Decimal" DbType="Decimal(9,6)" CanBeNull="true" />
       <Column Name="foodGuide" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="shopGuide" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="spotGuide" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -111,55 +160,8 @@
       <Column Name="foodMake" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="brorrowCar" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="engage" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.COMMENT" Member="COMMENT">
-    <Type Name="COMMENT">
-      <Column Name="commentId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="houseId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="commentContent" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="userId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="commentDate" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="star" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="photo" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.COLLECCTION" Member="COLLECCTION">
-    <Type Name="COLLECCTION">
-      <Column Name="collectionId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="houseId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="userId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="housePic" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="houseName" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="startDate" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="endDate" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="price" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="province" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="city" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="lat" Type="System.Decimal" DbType="Decimal(20,17)" CanBeNull="true" />
-      <Column Name="lng" Type="System.Decimal" DbType="Decimal(20,17)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.HOUSE_ORDER" Member="HOUSE_ORDER">
-    <Type Name="HOUSE_ORDER">
-      <Column Name="orderId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="hostId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="customerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="houseId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="orderDate" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="state" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="price" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="startDate" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="endDate" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="houseName" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="housePic" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="stateHintCustomer" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="stateNameCustomer" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="stateNameHost" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="isShowCustomer" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="isShowHost" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="stateHintHost" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="customerCheck" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="isPublished" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="headPhoto" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

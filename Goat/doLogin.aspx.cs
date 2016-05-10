@@ -51,7 +51,6 @@ public partial class doLogin : System.Web.UI.Page
                      select r;
         USER user = result.FirstOrDefault();
         int id = user.userId;
-        Session["ID"] = user.userId;
-        //addUserProfile(id);
+        Session["ID"] = user.userId;//ID是用户编号
     }
 }

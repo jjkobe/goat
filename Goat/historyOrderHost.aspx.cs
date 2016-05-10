@@ -23,7 +23,7 @@ public partial class historyOrderHost : System.Web.UI.Page
     }
     protected void center_ServerClick(object sender, EventArgs e)
     {
-        Response.Redirect("~/profileContent.aspx");
+        Response.Redirect("~/profile.aspx");
     }
 
     protected void dataBindHost()

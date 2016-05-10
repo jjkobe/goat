@@ -12,7 +12,7 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if ((Session["userId"] != null))
+        if ((Session["userId"] != null))//userId是登录时的电话号码
         {
             this.register.Visible = false;
             this.login.Visible = false;
@@ -40,6 +40,6 @@ public partial class _Default : System.Web.UI.Page
 
     protected void center_ServerClick(object sender, EventArgs e)
     {
-        Response.Redirect("~/profileContent.aspx");
+        Response.Redirect("~/profile.aspx");
     }
 }

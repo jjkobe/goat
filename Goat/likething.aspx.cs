@@ -26,7 +26,7 @@ public partial class likething : System.Web.UI.Page
 
     protected void center_ServerClick(object sender, EventArgs e)
     {
-        Response.Redirect("~/profileContent.aspx");
+        Response.Redirect("~/profile.aspx");
     }
 
     protected void Button1_Click(object sender, EventArgs e)

@@ -128,7 +128,7 @@ public partial class housePublish8 : System.Web.UI.Page
     }
     protected void center_ServerClick(object sender, EventArgs e)
     {
-        Response.Redirect("~/profileContent.aspx");
+        Response.Redirect("~/profile.aspx");
     }
     private void nextStep()
     {

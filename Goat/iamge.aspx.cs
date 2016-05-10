@@ -153,7 +153,7 @@ public partial class iamge : System.Web.UI.Page
     }
     protected void center_ServerClick(object sender, EventArgs e)
     {
-        Response.Redirect("~/profileContent.aspx");
+        Response.Redirect("~/profile.aspx");
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
@@ -268,6 +268,7 @@ public partial class iamge : System.Web.UI.Page
         int houseId = (int)Session["houseId"];
         ArrayList al = new ArrayList();
         string photo="";
+        string headPhoto="";
         if (Session["fileList"] != null)
         {
             al = (ArrayList)Session["fileList"];
@@ -275,6 +276,7 @@ public partial class iamge : System.Web.UI.Page
             {
                 photo += photoPath + ";";
             }
+            headPhoto =(string)al[0];
         }
 
         GoatDataContext lqdb = new GoatDataContext(ConfigurationManager.ConnectionStrings["GoatConnectionString"].ConnectionString.ToString());
@@ -283,6 +285,7 @@ public partial class iamge : System.Web.UI.Page
                      select r;
         HOUSE_INFO house = result.FirstOrDefault();
         house.photo = photo;
+        house.headPhoto = headPhoto;
         lqdb.SubmitChanges();
         nextStep();
         Response.Redirect("~/housePublish6.aspx");

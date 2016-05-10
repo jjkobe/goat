@@ -94,6 +94,7 @@ public partial class stepCheck : System.Web.UI.Page
         REF.houseId = id;
         REF.userId = userId;
         REF.step = 1;
+        Session["step"] = 1;
         REF.state = 0;
         lqdb.REF_USER_HOUSEINFO.InsertOnSubmit(REF);
         lqdb.SubmitChanges();

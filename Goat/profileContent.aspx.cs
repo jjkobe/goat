@@ -41,6 +41,7 @@ public partial class profileContent : System.Web.UI.Page
             userProfile.description = description;
         }
         lqdb.SubmitChanges();
+        Response.Redirect("~/Default.aspx");
     }
     protected void exit_ServerClick(object sender, EventArgs e)
     {
@@ -52,6 +53,6 @@ public partial class profileContent : System.Web.UI.Page
 
     protected void center_ServerClick(object sender, EventArgs e)
     {
-        Response.Redirect("~/profileContent.aspx");
+        Response.Redirect("~/profile.aspx");
     }
 }

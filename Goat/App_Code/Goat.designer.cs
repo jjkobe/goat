@@ -44,9 +44,6 @@ public partial class GoatDataContext : System.Data.Linq.DataContext
   partial void InsertREF_USER_HOUSEINFO(REF_USER_HOUSEINFO instance);
   partial void UpdateREF_USER_HOUSEINFO(REF_USER_HOUSEINFO instance);
   partial void DeleteREF_USER_HOUSEINFO(REF_USER_HOUSEINFO instance);
-  partial void InsertHOUSE_INFO(HOUSE_INFO instance);
-  partial void UpdateHOUSE_INFO(HOUSE_INFO instance);
-  partial void DeleteHOUSE_INFO(HOUSE_INFO instance);
   partial void InsertCOMMENT(COMMENT instance);
   partial void UpdateCOMMENT(COMMENT instance);
   partial void DeleteCOMMENT(COMMENT instance);
@@ -56,6 +53,9 @@ public partial class GoatDataContext : System.Data.Linq.DataContext
   partial void InsertHOUSE_ORDER(HOUSE_ORDER instance);
   partial void UpdateHOUSE_ORDER(HOUSE_ORDER instance);
   partial void DeleteHOUSE_ORDER(HOUSE_ORDER instance);
+  partial void InsertHOUSE_INFO(HOUSE_INFO instance);
+  partial void UpdateHOUSE_INFO(HOUSE_INFO instance);
+  partial void DeleteHOUSE_INFO(HOUSE_INFO instance);
   #endregion
 	
 	public GoatDataContext() : 
@@ -128,14 +128,6 @@ public partial class GoatDataContext : System.Data.Linq.DataContext
 		}
 	}
 	
-	public System.Data.Linq.Table<HOUSE_INFO> HOUSE_INFO
-	{
-		get
-		{
-			return this.GetTable<HOUSE_INFO>();
-		}
-	}
-	
 	public System.Data.Linq.Table<COMMENT> COMMENT
 	{
 		get
@@ -157,6 +149,14 @@ public partial class GoatDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<HOUSE_ORDER>();
+		}
+	}
+	
+	public System.Data.Linq.Table<HOUSE_INFO> HOUSE_INFO
+	{
+		get
+		{
+			return this.GetTable<HOUSE_INFO>();
 		}
 	}
 }
@@ -879,6 +879,1008 @@ public partial class REF_USER_HOUSEINFO : INotifyPropertyChanging, INotifyProper
 	}
 }
 
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.COMMENT")]
+public partial class COMMENT : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _commentId;
+	
+	private int _houseId;
+	
+	private string _commentContent;
+	
+	private int _userId;
+	
+	private string _commentDate;
+	
+	private int _star;
+	
+	private string _photo;
+	
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OncommentIdChanging(int value);
+    partial void OncommentIdChanged();
+    partial void OnhouseIdChanging(int value);
+    partial void OnhouseIdChanged();
+    partial void OncommentContentChanging(string value);
+    partial void OncommentContentChanged();
+    partial void OnuserIdChanging(int value);
+    partial void OnuserIdChanged();
+    partial void OncommentDateChanging(string value);
+    partial void OncommentDateChanged();
+    partial void OnstarChanging(int value);
+    partial void OnstarChanged();
+    partial void OnphotoChanging(string value);
+    partial void OnphotoChanged();
+    #endregion
+	
+	public COMMENT()
+	{
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_commentId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int commentId
+	{
+		get
+		{
+			return this._commentId;
+		}
+		set
+		{
+			if ((this._commentId != value))
+			{
+				this.OncommentIdChanging(value);
+				this.SendPropertyChanging();
+				this._commentId = value;
+				this.SendPropertyChanged("commentId");
+				this.OncommentIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_houseId", DbType="Int NOT NULL")]
+	public int houseId
+	{
+		get
+		{
+			return this._houseId;
+		}
+		set
+		{
+			if ((this._houseId != value))
+			{
+				this.OnhouseIdChanging(value);
+				this.SendPropertyChanging();
+				this._houseId = value;
+				this.SendPropertyChanged("houseId");
+				this.OnhouseIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_commentContent", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+	public string commentContent
+	{
+		get
+		{
+			return this._commentContent;
+		}
+		set
+		{
+			if ((this._commentContent != value))
+			{
+				this.OncommentContentChanging(value);
+				this.SendPropertyChanging();
+				this._commentContent = value;
+				this.SendPropertyChanged("commentContent");
+				this.OncommentContentChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userId", DbType="Int NOT NULL")]
+	public int userId
+	{
+		get
+		{
+			return this._userId;
+		}
+		set
+		{
+			if ((this._userId != value))
+			{
+				this.OnuserIdChanging(value);
+				this.SendPropertyChanging();
+				this._userId = value;
+				this.SendPropertyChanged("userId");
+				this.OnuserIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_commentDate", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+	public string commentDate
+	{
+		get
+		{
+			return this._commentDate;
+		}
+		set
+		{
+			if ((this._commentDate != value))
+			{
+				this.OncommentDateChanging(value);
+				this.SendPropertyChanging();
+				this._commentDate = value;
+				this.SendPropertyChanged("commentDate");
+				this.OncommentDateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_star", DbType="Int NOT NULL")]
+	public int star
+	{
+		get
+		{
+			return this._star;
+		}
+		set
+		{
+			if ((this._star != value))
+			{
+				this.OnstarChanging(value);
+				this.SendPropertyChanging();
+				this._star = value;
+				this.SendPropertyChanged("star");
+				this.OnstarChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_photo", DbType="VarChar(MAX)")]
+	public string photo
+	{
+		get
+		{
+			return this._photo;
+		}
+		set
+		{
+			if ((this._photo != value))
+			{
+				this.OnphotoChanging(value);
+				this.SendPropertyChanging();
+				this._photo = value;
+				this.SendPropertyChanged("photo");
+				this.OnphotoChanged();
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.COLLECCTION")]
+public partial class COLLECCTION : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _collectionId;
+	
+	private int _houseId;
+	
+	private int _userId;
+	
+	private string _housePic;
+	
+	private string _houseName;
+	
+	private string _startDate;
+	
+	private string _endDate;
+	
+	private int _price;
+	
+	private string _province;
+	
+	private string _city;
+	
+	private System.Nullable<decimal> _lat;
+	
+	private System.Nullable<decimal> _lng;
+	
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OncollectionIdChanging(int value);
+    partial void OncollectionIdChanged();
+    partial void OnhouseIdChanging(int value);
+    partial void OnhouseIdChanged();
+    partial void OnuserIdChanging(int value);
+    partial void OnuserIdChanged();
+    partial void OnhousePicChanging(string value);
+    partial void OnhousePicChanged();
+    partial void OnhouseNameChanging(string value);
+    partial void OnhouseNameChanged();
+    partial void OnstartDateChanging(string value);
+    partial void OnstartDateChanged();
+    partial void OnendDateChanging(string value);
+    partial void OnendDateChanged();
+    partial void OnpriceChanging(int value);
+    partial void OnpriceChanged();
+    partial void OnprovinceChanging(string value);
+    partial void OnprovinceChanged();
+    partial void OncityChanging(string value);
+    partial void OncityChanged();
+    partial void OnlatChanging(System.Nullable<decimal> value);
+    partial void OnlatChanged();
+    partial void OnlngChanging(System.Nullable<decimal> value);
+    partial void OnlngChanged();
+    #endregion
+	
+	public COLLECCTION()
+	{
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_collectionId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int collectionId
+	{
+		get
+		{
+			return this._collectionId;
+		}
+		set
+		{
+			if ((this._collectionId != value))
+			{
+				this.OncollectionIdChanging(value);
+				this.SendPropertyChanging();
+				this._collectionId = value;
+				this.SendPropertyChanged("collectionId");
+				this.OncollectionIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_houseId", DbType="Int NOT NULL")]
+	public int houseId
+	{
+		get
+		{
+			return this._houseId;
+		}
+		set
+		{
+			if ((this._houseId != value))
+			{
+				this.OnhouseIdChanging(value);
+				this.SendPropertyChanging();
+				this._houseId = value;
+				this.SendPropertyChanged("houseId");
+				this.OnhouseIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userId", DbType="Int NOT NULL")]
+	public int userId
+	{
+		get
+		{
+			return this._userId;
+		}
+		set
+		{
+			if ((this._userId != value))
+			{
+				this.OnuserIdChanging(value);
+				this.SendPropertyChanging();
+				this._userId = value;
+				this.SendPropertyChanged("userId");
+				this.OnuserIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_housePic", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+	public string housePic
+	{
+		get
+		{
+			return this._housePic;
+		}
+		set
+		{
+			if ((this._housePic != value))
+			{
+				this.OnhousePicChanging(value);
+				this.SendPropertyChanging();
+				this._housePic = value;
+				this.SendPropertyChanged("housePic");
+				this.OnhousePicChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_houseName", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+	public string houseName
+	{
+		get
+		{
+			return this._houseName;
+		}
+		set
+		{
+			if ((this._houseName != value))
+			{
+				this.OnhouseNameChanging(value);
+				this.SendPropertyChanging();
+				this._houseName = value;
+				this.SendPropertyChanged("houseName");
+				this.OnhouseNameChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_startDate", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+	public string startDate
+	{
+		get
+		{
+			return this._startDate;
+		}
+		set
+		{
+			if ((this._startDate != value))
+			{
+				this.OnstartDateChanging(value);
+				this.SendPropertyChanging();
+				this._startDate = value;
+				this.SendPropertyChanged("startDate");
+				this.OnstartDateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_endDate", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+	public string endDate
+	{
+		get
+		{
+			return this._endDate;
+		}
+		set
+		{
+			if ((this._endDate != value))
+			{
+				this.OnendDateChanging(value);
+				this.SendPropertyChanging();
+				this._endDate = value;
+				this.SendPropertyChanged("endDate");
+				this.OnendDateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Int NOT NULL")]
+	public int price
+	{
+		get
+		{
+			return this._price;
+		}
+		set
+		{
+			if ((this._price != value))
+			{
+				this.OnpriceChanging(value);
+				this.SendPropertyChanging();
+				this._price = value;
+				this.SendPropertyChanged("price");
+				this.OnpriceChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_province", DbType="VarChar(MAX)")]
+	public string province
+	{
+		get
+		{
+			return this._province;
+		}
+		set
+		{
+			if ((this._province != value))
+			{
+				this.OnprovinceChanging(value);
+				this.SendPropertyChanging();
+				this._province = value;
+				this.SendPropertyChanged("province");
+				this.OnprovinceChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_city", DbType="VarChar(MAX)")]
+	public string city
+	{
+		get
+		{
+			return this._city;
+		}
+		set
+		{
+			if ((this._city != value))
+			{
+				this.OncityChanging(value);
+				this.SendPropertyChanging();
+				this._city = value;
+				this.SendPropertyChanged("city");
+				this.OncityChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lat", DbType="Decimal(20,17)")]
+	public System.Nullable<decimal> lat
+	{
+		get
+		{
+			return this._lat;
+		}
+		set
+		{
+			if ((this._lat != value))
+			{
+				this.OnlatChanging(value);
+				this.SendPropertyChanging();
+				this._lat = value;
+				this.SendPropertyChanged("lat");
+				this.OnlatChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lng", DbType="Decimal(20,17)")]
+	public System.Nullable<decimal> lng
+	{
+		get
+		{
+			return this._lng;
+		}
+		set
+		{
+			if ((this._lng != value))
+			{
+				this.OnlngChanging(value);
+				this.SendPropertyChanging();
+				this._lng = value;
+				this.SendPropertyChanged("lng");
+				this.OnlngChanged();
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HOUSE_ORDER")]
+public partial class HOUSE_ORDER : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _orderId;
+	
+	private int _hostId;
+	
+	private int _customerId;
+	
+	private int _houseId;
+	
+	private string _orderDate;
+	
+	private int _state;
+	
+	private int _price;
+	
+	private string _startDate;
+	
+	private string _endDate;
+	
+	private string _houseName;
+	
+	private string _housePic;
+	
+	private string _stateHintCustomer;
+	
+	private string _stateNameCustomer;
+	
+	private string _stateNameHost;
+	
+	private System.Nullable<int> _isShowCustomer;
+	
+	private System.Nullable<int> _isShowHost;
+	
+	private string _stateHintHost;
+	
+	private System.Nullable<int> _customerCheck;
+	
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnorderIdChanging(int value);
+    partial void OnorderIdChanged();
+    partial void OnhostIdChanging(int value);
+    partial void OnhostIdChanged();
+    partial void OncustomerIdChanging(int value);
+    partial void OncustomerIdChanged();
+    partial void OnhouseIdChanging(int value);
+    partial void OnhouseIdChanged();
+    partial void OnorderDateChanging(string value);
+    partial void OnorderDateChanged();
+    partial void OnstateChanging(int value);
+    partial void OnstateChanged();
+    partial void OnpriceChanging(int value);
+    partial void OnpriceChanged();
+    partial void OnstartDateChanging(string value);
+    partial void OnstartDateChanged();
+    partial void OnendDateChanging(string value);
+    partial void OnendDateChanged();
+    partial void OnhouseNameChanging(string value);
+    partial void OnhouseNameChanged();
+    partial void OnhousePicChanging(string value);
+    partial void OnhousePicChanged();
+    partial void OnstateHintCustomerChanging(string value);
+    partial void OnstateHintCustomerChanged();
+    partial void OnstateNameCustomerChanging(string value);
+    partial void OnstateNameCustomerChanged();
+    partial void OnstateNameHostChanging(string value);
+    partial void OnstateNameHostChanged();
+    partial void OnisShowCustomerChanging(System.Nullable<int> value);
+    partial void OnisShowCustomerChanged();
+    partial void OnisShowHostChanging(System.Nullable<int> value);
+    partial void OnisShowHostChanged();
+    partial void OnstateHintHostChanging(string value);
+    partial void OnstateHintHostChanged();
+    partial void OncustomerCheckChanging(System.Nullable<int> value);
+    partial void OncustomerCheckChanged();
+    #endregion
+	
+	public HOUSE_ORDER()
+	{
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_orderId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int orderId
+	{
+		get
+		{
+			return this._orderId;
+		}
+		set
+		{
+			if ((this._orderId != value))
+			{
+				this.OnorderIdChanging(value);
+				this.SendPropertyChanging();
+				this._orderId = value;
+				this.SendPropertyChanged("orderId");
+				this.OnorderIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hostId", DbType="Int NOT NULL")]
+	public int hostId
+	{
+		get
+		{
+			return this._hostId;
+		}
+		set
+		{
+			if ((this._hostId != value))
+			{
+				this.OnhostIdChanging(value);
+				this.SendPropertyChanging();
+				this._hostId = value;
+				this.SendPropertyChanged("hostId");
+				this.OnhostIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_customerId", DbType="Int NOT NULL")]
+	public int customerId
+	{
+		get
+		{
+			return this._customerId;
+		}
+		set
+		{
+			if ((this._customerId != value))
+			{
+				this.OncustomerIdChanging(value);
+				this.SendPropertyChanging();
+				this._customerId = value;
+				this.SendPropertyChanged("customerId");
+				this.OncustomerIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_houseId", DbType="Int NOT NULL")]
+	public int houseId
+	{
+		get
+		{
+			return this._houseId;
+		}
+		set
+		{
+			if ((this._houseId != value))
+			{
+				this.OnhouseIdChanging(value);
+				this.SendPropertyChanging();
+				this._houseId = value;
+				this.SendPropertyChanged("houseId");
+				this.OnhouseIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_orderDate", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+	public string orderDate
+	{
+		get
+		{
+			return this._orderDate;
+		}
+		set
+		{
+			if ((this._orderDate != value))
+			{
+				this.OnorderDateChanging(value);
+				this.SendPropertyChanging();
+				this._orderDate = value;
+				this.SendPropertyChanged("orderDate");
+				this.OnorderDateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_state", DbType="Int NOT NULL")]
+	public int state
+	{
+		get
+		{
+			return this._state;
+		}
+		set
+		{
+			if ((this._state != value))
+			{
+				this.OnstateChanging(value);
+				this.SendPropertyChanging();
+				this._state = value;
+				this.SendPropertyChanged("state");
+				this.OnstateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Int NOT NULL")]
+	public int price
+	{
+		get
+		{
+			return this._price;
+		}
+		set
+		{
+			if ((this._price != value))
+			{
+				this.OnpriceChanging(value);
+				this.SendPropertyChanging();
+				this._price = value;
+				this.SendPropertyChanged("price");
+				this.OnpriceChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_startDate", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+	public string startDate
+	{
+		get
+		{
+			return this._startDate;
+		}
+		set
+		{
+			if ((this._startDate != value))
+			{
+				this.OnstartDateChanging(value);
+				this.SendPropertyChanging();
+				this._startDate = value;
+				this.SendPropertyChanged("startDate");
+				this.OnstartDateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_endDate", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+	public string endDate
+	{
+		get
+		{
+			return this._endDate;
+		}
+		set
+		{
+			if ((this._endDate != value))
+			{
+				this.OnendDateChanging(value);
+				this.SendPropertyChanging();
+				this._endDate = value;
+				this.SendPropertyChanged("endDate");
+				this.OnendDateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_houseName", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+	public string houseName
+	{
+		get
+		{
+			return this._houseName;
+		}
+		set
+		{
+			if ((this._houseName != value))
+			{
+				this.OnhouseNameChanging(value);
+				this.SendPropertyChanging();
+				this._houseName = value;
+				this.SendPropertyChanged("houseName");
+				this.OnhouseNameChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_housePic", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+	public string housePic
+	{
+		get
+		{
+			return this._housePic;
+		}
+		set
+		{
+			if ((this._housePic != value))
+			{
+				this.OnhousePicChanging(value);
+				this.SendPropertyChanging();
+				this._housePic = value;
+				this.SendPropertyChanged("housePic");
+				this.OnhousePicChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_stateHintCustomer", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+	public string stateHintCustomer
+	{
+		get
+		{
+			return this._stateHintCustomer;
+		}
+		set
+		{
+			if ((this._stateHintCustomer != value))
+			{
+				this.OnstateHintCustomerChanging(value);
+				this.SendPropertyChanging();
+				this._stateHintCustomer = value;
+				this.SendPropertyChanged("stateHintCustomer");
+				this.OnstateHintCustomerChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_stateNameCustomer", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+	public string stateNameCustomer
+	{
+		get
+		{
+			return this._stateNameCustomer;
+		}
+		set
+		{
+			if ((this._stateNameCustomer != value))
+			{
+				this.OnstateNameCustomerChanging(value);
+				this.SendPropertyChanging();
+				this._stateNameCustomer = value;
+				this.SendPropertyChanged("stateNameCustomer");
+				this.OnstateNameCustomerChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_stateNameHost", DbType="VarChar(MAX)")]
+	public string stateNameHost
+	{
+		get
+		{
+			return this._stateNameHost;
+		}
+		set
+		{
+			if ((this._stateNameHost != value))
+			{
+				this.OnstateNameHostChanging(value);
+				this.SendPropertyChanging();
+				this._stateNameHost = value;
+				this.SendPropertyChanged("stateNameHost");
+				this.OnstateNameHostChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isShowCustomer", DbType="Int")]
+	public System.Nullable<int> isShowCustomer
+	{
+		get
+		{
+			return this._isShowCustomer;
+		}
+		set
+		{
+			if ((this._isShowCustomer != value))
+			{
+				this.OnisShowCustomerChanging(value);
+				this.SendPropertyChanging();
+				this._isShowCustomer = value;
+				this.SendPropertyChanged("isShowCustomer");
+				this.OnisShowCustomerChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isShowHost", DbType="Int")]
+	public System.Nullable<int> isShowHost
+	{
+		get
+		{
+			return this._isShowHost;
+		}
+		set
+		{
+			if ((this._isShowHost != value))
+			{
+				this.OnisShowHostChanging(value);
+				this.SendPropertyChanging();
+				this._isShowHost = value;
+				this.SendPropertyChanged("isShowHost");
+				this.OnisShowHostChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_stateHintHost", DbType="VarChar(MAX)")]
+	public string stateHintHost
+	{
+		get
+		{
+			return this._stateHintHost;
+		}
+		set
+		{
+			if ((this._stateHintHost != value))
+			{
+				this.OnstateHintHostChanging(value);
+				this.SendPropertyChanging();
+				this._stateHintHost = value;
+				this.SendPropertyChanged("stateHintHost");
+				this.OnstateHintHostChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_customerCheck", DbType="Int")]
+	public System.Nullable<int> customerCheck
+	{
+		get
+		{
+			return this._customerCheck;
+		}
+		set
+		{
+			if ((this._customerCheck != value))
+			{
+				this.OncustomerCheckChanging(value);
+				this.SendPropertyChanging();
+				this._customerCheck = value;
+				this.SendPropertyChanged("customerCheck");
+				this.OncustomerCheckChanged();
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
 [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HOUSE_INFO")]
 public partial class HOUSE_INFO : INotifyPropertyChanging, INotifyPropertyChanged
 {
@@ -1019,6 +2021,10 @@ public partial class HOUSE_INFO : INotifyPropertyChanging, INotifyPropertyChange
 	
 	private System.Nullable<int> _engage;
 	
+	private System.Nullable<int> _isPublished;
+	
+	private string _headPhoto;
+	
     #region 可扩展性方法定义
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1157,6 +2163,10 @@ public partial class HOUSE_INFO : INotifyPropertyChanging, INotifyPropertyChange
     partial void OnbrorrowCarChanged();
     partial void OnengageChanging(System.Nullable<int> value);
     partial void OnengageChanged();
+    partial void OnisPublishedChanging(System.Nullable<int> value);
+    partial void OnisPublishedChanged();
+    partial void OnheadPhotoChanging(string value);
+    partial void OnheadPhotoChanged();
     #endregion
 	
 	public HOUSE_INFO()
@@ -2304,7 +3314,7 @@ public partial class HOUSE_INFO : INotifyPropertyChanging, INotifyPropertyChange
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lat", DbType="Decimal(20,17)")]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lat", DbType="Decimal(9,6)")]
 	public System.Nullable<decimal> lat
 	{
 		get
@@ -2324,7 +3334,7 @@ public partial class HOUSE_INFO : INotifyPropertyChanging, INotifyPropertyChange
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lng", DbType="Decimal(20,17)")]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lng", DbType="Decimal(9,6)")]
 	public System.Nullable<decimal> lng
 	{
 		get
@@ -2504,1004 +3514,42 @@ public partial class HOUSE_INFO : INotifyPropertyChanging, INotifyPropertyChange
 		}
 	}
 	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
-		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
-		}
-	}
-	
-	protected virtual void SendPropertyChanged(String propertyName)
-	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
-	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.COMMENT")]
-public partial class COMMENT : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private int _commentId;
-	
-	private int _houseId;
-	
-	private string _commentContent;
-	
-	private int _userId;
-	
-	private string _commentDate;
-	
-	private int _star;
-	
-	private string _photo;
-	
-    #region 可扩展性方法定义
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OncommentIdChanging(int value);
-    partial void OncommentIdChanged();
-    partial void OnhouseIdChanging(int value);
-    partial void OnhouseIdChanged();
-    partial void OncommentContentChanging(string value);
-    partial void OncommentContentChanged();
-    partial void OnuserIdChanging(int value);
-    partial void OnuserIdChanged();
-    partial void OncommentDateChanging(string value);
-    partial void OncommentDateChanged();
-    partial void OnstarChanging(int value);
-    partial void OnstarChanged();
-    partial void OnphotoChanging(string value);
-    partial void OnphotoChanged();
-    #endregion
-	
-	public COMMENT()
-	{
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_commentId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public int commentId
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isPublished", DbType="Int")]
+	public System.Nullable<int> isPublished
 	{
 		get
 		{
-			return this._commentId;
+			return this._isPublished;
 		}
 		set
 		{
-			if ((this._commentId != value))
+			if ((this._isPublished != value))
 			{
-				this.OncommentIdChanging(value);
+				this.OnisPublishedChanging(value);
 				this.SendPropertyChanging();
-				this._commentId = value;
-				this.SendPropertyChanged("commentId");
-				this.OncommentIdChanged();
+				this._isPublished = value;
+				this.SendPropertyChanged("isPublished");
+				this.OnisPublishedChanged();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_houseId", DbType="Int NOT NULL")]
-	public int houseId
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_headPhoto", DbType="VarChar(MAX)")]
+	public string headPhoto
 	{
 		get
 		{
-			return this._houseId;
+			return this._headPhoto;
 		}
 		set
 		{
-			if ((this._houseId != value))
+			if ((this._headPhoto != value))
 			{
-				this.OnhouseIdChanging(value);
+				this.OnheadPhotoChanging(value);
 				this.SendPropertyChanging();
-				this._houseId = value;
-				this.SendPropertyChanged("houseId");
-				this.OnhouseIdChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_commentContent", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-	public string commentContent
-	{
-		get
-		{
-			return this._commentContent;
-		}
-		set
-		{
-			if ((this._commentContent != value))
-			{
-				this.OncommentContentChanging(value);
-				this.SendPropertyChanging();
-				this._commentContent = value;
-				this.SendPropertyChanged("commentContent");
-				this.OncommentContentChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userId", DbType="Int NOT NULL")]
-	public int userId
-	{
-		get
-		{
-			return this._userId;
-		}
-		set
-		{
-			if ((this._userId != value))
-			{
-				this.OnuserIdChanging(value);
-				this.SendPropertyChanging();
-				this._userId = value;
-				this.SendPropertyChanged("userId");
-				this.OnuserIdChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_commentDate", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-	public string commentDate
-	{
-		get
-		{
-			return this._commentDate;
-		}
-		set
-		{
-			if ((this._commentDate != value))
-			{
-				this.OncommentDateChanging(value);
-				this.SendPropertyChanging();
-				this._commentDate = value;
-				this.SendPropertyChanged("commentDate");
-				this.OncommentDateChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_star", DbType="Int NOT NULL")]
-	public int star
-	{
-		get
-		{
-			return this._star;
-		}
-		set
-		{
-			if ((this._star != value))
-			{
-				this.OnstarChanging(value);
-				this.SendPropertyChanging();
-				this._star = value;
-				this.SendPropertyChanged("star");
-				this.OnstarChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_photo", DbType="VarChar(MAX)")]
-	public string photo
-	{
-		get
-		{
-			return this._photo;
-		}
-		set
-		{
-			if ((this._photo != value))
-			{
-				this.OnphotoChanging(value);
-				this.SendPropertyChanging();
-				this._photo = value;
-				this.SendPropertyChanged("photo");
-				this.OnphotoChanged();
-			}
-		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
-		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
-		}
-	}
-	
-	protected virtual void SendPropertyChanged(String propertyName)
-	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
-	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.COLLECCTION")]
-public partial class COLLECCTION : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private int _collectionId;
-	
-	private int _houseId;
-	
-	private int _userId;
-	
-	private string _housePic;
-	
-	private string _houseName;
-	
-	private string _startDate;
-	
-	private string _endDate;
-	
-	private int _price;
-	
-	private string _province;
-	
-	private string _city;
-	
-	private System.Nullable<decimal> _lat;
-	
-	private System.Nullable<decimal> _lng;
-	
-    #region 可扩展性方法定义
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OncollectionIdChanging(int value);
-    partial void OncollectionIdChanged();
-    partial void OnhouseIdChanging(int value);
-    partial void OnhouseIdChanged();
-    partial void OnuserIdChanging(int value);
-    partial void OnuserIdChanged();
-    partial void OnhousePicChanging(string value);
-    partial void OnhousePicChanged();
-    partial void OnhouseNameChanging(string value);
-    partial void OnhouseNameChanged();
-    partial void OnstartDateChanging(string value);
-    partial void OnstartDateChanged();
-    partial void OnendDateChanging(string value);
-    partial void OnendDateChanged();
-    partial void OnpriceChanging(int value);
-    partial void OnpriceChanged();
-    partial void OnprovinceChanging(string value);
-    partial void OnprovinceChanged();
-    partial void OncityChanging(string value);
-    partial void OncityChanged();
-    partial void OnlatChanging(System.Nullable<decimal> value);
-    partial void OnlatChanged();
-    partial void OnlngChanging(System.Nullable<decimal> value);
-    partial void OnlngChanged();
-    #endregion
-	
-	public COLLECCTION()
-	{
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_collectionId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public int collectionId
-	{
-		get
-		{
-			return this._collectionId;
-		}
-		set
-		{
-			if ((this._collectionId != value))
-			{
-				this.OncollectionIdChanging(value);
-				this.SendPropertyChanging();
-				this._collectionId = value;
-				this.SendPropertyChanged("collectionId");
-				this.OncollectionIdChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_houseId", DbType="Int NOT NULL")]
-	public int houseId
-	{
-		get
-		{
-			return this._houseId;
-		}
-		set
-		{
-			if ((this._houseId != value))
-			{
-				this.OnhouseIdChanging(value);
-				this.SendPropertyChanging();
-				this._houseId = value;
-				this.SendPropertyChanged("houseId");
-				this.OnhouseIdChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userId", DbType="Int NOT NULL")]
-	public int userId
-	{
-		get
-		{
-			return this._userId;
-		}
-		set
-		{
-			if ((this._userId != value))
-			{
-				this.OnuserIdChanging(value);
-				this.SendPropertyChanging();
-				this._userId = value;
-				this.SendPropertyChanged("userId");
-				this.OnuserIdChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_housePic", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-	public string housePic
-	{
-		get
-		{
-			return this._housePic;
-		}
-		set
-		{
-			if ((this._housePic != value))
-			{
-				this.OnhousePicChanging(value);
-				this.SendPropertyChanging();
-				this._housePic = value;
-				this.SendPropertyChanged("housePic");
-				this.OnhousePicChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_houseName", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-	public string houseName
-	{
-		get
-		{
-			return this._houseName;
-		}
-		set
-		{
-			if ((this._houseName != value))
-			{
-				this.OnhouseNameChanging(value);
-				this.SendPropertyChanging();
-				this._houseName = value;
-				this.SendPropertyChanged("houseName");
-				this.OnhouseNameChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_startDate", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-	public string startDate
-	{
-		get
-		{
-			return this._startDate;
-		}
-		set
-		{
-			if ((this._startDate != value))
-			{
-				this.OnstartDateChanging(value);
-				this.SendPropertyChanging();
-				this._startDate = value;
-				this.SendPropertyChanged("startDate");
-				this.OnstartDateChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_endDate", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-	public string endDate
-	{
-		get
-		{
-			return this._endDate;
-		}
-		set
-		{
-			if ((this._endDate != value))
-			{
-				this.OnendDateChanging(value);
-				this.SendPropertyChanging();
-				this._endDate = value;
-				this.SendPropertyChanged("endDate");
-				this.OnendDateChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Int NOT NULL")]
-	public int price
-	{
-		get
-		{
-			return this._price;
-		}
-		set
-		{
-			if ((this._price != value))
-			{
-				this.OnpriceChanging(value);
-				this.SendPropertyChanging();
-				this._price = value;
-				this.SendPropertyChanged("price");
-				this.OnpriceChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_province", DbType="VarChar(MAX)")]
-	public string province
-	{
-		get
-		{
-			return this._province;
-		}
-		set
-		{
-			if ((this._province != value))
-			{
-				this.OnprovinceChanging(value);
-				this.SendPropertyChanging();
-				this._province = value;
-				this.SendPropertyChanged("province");
-				this.OnprovinceChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_city", DbType="VarChar(MAX)")]
-	public string city
-	{
-		get
-		{
-			return this._city;
-		}
-		set
-		{
-			if ((this._city != value))
-			{
-				this.OncityChanging(value);
-				this.SendPropertyChanging();
-				this._city = value;
-				this.SendPropertyChanged("city");
-				this.OncityChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lat", DbType="Decimal(20,17)")]
-	public System.Nullable<decimal> lat
-	{
-		get
-		{
-			return this._lat;
-		}
-		set
-		{
-			if ((this._lat != value))
-			{
-				this.OnlatChanging(value);
-				this.SendPropertyChanging();
-				this._lat = value;
-				this.SendPropertyChanged("lat");
-				this.OnlatChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lng", DbType="Decimal(20,17)")]
-	public System.Nullable<decimal> lng
-	{
-		get
-		{
-			return this._lng;
-		}
-		set
-		{
-			if ((this._lng != value))
-			{
-				this.OnlngChanging(value);
-				this.SendPropertyChanging();
-				this._lng = value;
-				this.SendPropertyChanged("lng");
-				this.OnlngChanged();
-			}
-		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
-		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
-		}
-	}
-	
-	protected virtual void SendPropertyChanged(String propertyName)
-	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
-	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HOUSE_ORDER")]
-public partial class HOUSE_ORDER : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private int _orderId;
-	
-	private int _hostId;
-	
-	private int _customerId;
-	
-	private int _houseId;
-	
-	private string _orderDate;
-	
-	private int _state;
-	
-	private int _price;
-	
-	private string _startDate;
-	
-	private string _endDate;
-	
-	private string _houseName;
-	
-	private string _housePic;
-	
-	private string _stateHintCustomer;
-	
-	private string _stateNameCustomer;
-	
-	private string _stateNameHost;
-	
-	private System.Nullable<int> _isShowCustomer;
-	
-	private System.Nullable<int> _isShowHost;
-	
-	private string _stateHintHost;
-	
-	private System.Nullable<int> _customerCheck;
-	
-    #region 可扩展性方法定义
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnorderIdChanging(int value);
-    partial void OnorderIdChanged();
-    partial void OnhostIdChanging(int value);
-    partial void OnhostIdChanged();
-    partial void OncustomerIdChanging(int value);
-    partial void OncustomerIdChanged();
-    partial void OnhouseIdChanging(int value);
-    partial void OnhouseIdChanged();
-    partial void OnorderDateChanging(string value);
-    partial void OnorderDateChanged();
-    partial void OnstateChanging(int value);
-    partial void OnstateChanged();
-    partial void OnpriceChanging(int value);
-    partial void OnpriceChanged();
-    partial void OnstartDateChanging(string value);
-    partial void OnstartDateChanged();
-    partial void OnendDateChanging(string value);
-    partial void OnendDateChanged();
-    partial void OnhouseNameChanging(string value);
-    partial void OnhouseNameChanged();
-    partial void OnhousePicChanging(string value);
-    partial void OnhousePicChanged();
-    partial void OnstateHintCustomerChanging(string value);
-    partial void OnstateHintCustomerChanged();
-    partial void OnstateNameCustomerChanging(string value);
-    partial void OnstateNameCustomerChanged();
-    partial void OnstateNameHostChanging(string value);
-    partial void OnstateNameHostChanged();
-    partial void OnisShowCustomerChanging(System.Nullable<int> value);
-    partial void OnisShowCustomerChanged();
-    partial void OnisShowHostChanging(System.Nullable<int> value);
-    partial void OnisShowHostChanged();
-    partial void OnstateHintHostChanging(string value);
-    partial void OnstateHintHostChanged();
-    partial void OncustomerCheckChanging(System.Nullable<int> value);
-    partial void OncustomerCheckChanged();
-    #endregion
-	
-	public HOUSE_ORDER()
-	{
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_orderId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public int orderId
-	{
-		get
-		{
-			return this._orderId;
-		}
-		set
-		{
-			if ((this._orderId != value))
-			{
-				this.OnorderIdChanging(value);
-				this.SendPropertyChanging();
-				this._orderId = value;
-				this.SendPropertyChanged("orderId");
-				this.OnorderIdChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hostId", DbType="Int NOT NULL")]
-	public int hostId
-	{
-		get
-		{
-			return this._hostId;
-		}
-		set
-		{
-			if ((this._hostId != value))
-			{
-				this.OnhostIdChanging(value);
-				this.SendPropertyChanging();
-				this._hostId = value;
-				this.SendPropertyChanged("hostId");
-				this.OnhostIdChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_customerId", DbType="Int NOT NULL")]
-	public int customerId
-	{
-		get
-		{
-			return this._customerId;
-		}
-		set
-		{
-			if ((this._customerId != value))
-			{
-				this.OncustomerIdChanging(value);
-				this.SendPropertyChanging();
-				this._customerId = value;
-				this.SendPropertyChanged("customerId");
-				this.OncustomerIdChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_houseId", DbType="Int NOT NULL")]
-	public int houseId
-	{
-		get
-		{
-			return this._houseId;
-		}
-		set
-		{
-			if ((this._houseId != value))
-			{
-				this.OnhouseIdChanging(value);
-				this.SendPropertyChanging();
-				this._houseId = value;
-				this.SendPropertyChanged("houseId");
-				this.OnhouseIdChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_orderDate", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-	public string orderDate
-	{
-		get
-		{
-			return this._orderDate;
-		}
-		set
-		{
-			if ((this._orderDate != value))
-			{
-				this.OnorderDateChanging(value);
-				this.SendPropertyChanging();
-				this._orderDate = value;
-				this.SendPropertyChanged("orderDate");
-				this.OnorderDateChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_state", DbType="Int NOT NULL")]
-	public int state
-	{
-		get
-		{
-			return this._state;
-		}
-		set
-		{
-			if ((this._state != value))
-			{
-				this.OnstateChanging(value);
-				this.SendPropertyChanging();
-				this._state = value;
-				this.SendPropertyChanged("state");
-				this.OnstateChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Int NOT NULL")]
-	public int price
-	{
-		get
-		{
-			return this._price;
-		}
-		set
-		{
-			if ((this._price != value))
-			{
-				this.OnpriceChanging(value);
-				this.SendPropertyChanging();
-				this._price = value;
-				this.SendPropertyChanged("price");
-				this.OnpriceChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_startDate", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-	public string startDate
-	{
-		get
-		{
-			return this._startDate;
-		}
-		set
-		{
-			if ((this._startDate != value))
-			{
-				this.OnstartDateChanging(value);
-				this.SendPropertyChanging();
-				this._startDate = value;
-				this.SendPropertyChanged("startDate");
-				this.OnstartDateChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_endDate", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-	public string endDate
-	{
-		get
-		{
-			return this._endDate;
-		}
-		set
-		{
-			if ((this._endDate != value))
-			{
-				this.OnendDateChanging(value);
-				this.SendPropertyChanging();
-				this._endDate = value;
-				this.SendPropertyChanged("endDate");
-				this.OnendDateChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_houseName", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-	public string houseName
-	{
-		get
-		{
-			return this._houseName;
-		}
-		set
-		{
-			if ((this._houseName != value))
-			{
-				this.OnhouseNameChanging(value);
-				this.SendPropertyChanging();
-				this._houseName = value;
-				this.SendPropertyChanged("houseName");
-				this.OnhouseNameChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_housePic", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-	public string housePic
-	{
-		get
-		{
-			return this._housePic;
-		}
-		set
-		{
-			if ((this._housePic != value))
-			{
-				this.OnhousePicChanging(value);
-				this.SendPropertyChanging();
-				this._housePic = value;
-				this.SendPropertyChanged("housePic");
-				this.OnhousePicChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_stateHintCustomer", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-	public string stateHintCustomer
-	{
-		get
-		{
-			return this._stateHintCustomer;
-		}
-		set
-		{
-			if ((this._stateHintCustomer != value))
-			{
-				this.OnstateHintCustomerChanging(value);
-				this.SendPropertyChanging();
-				this._stateHintCustomer = value;
-				this.SendPropertyChanged("stateHintCustomer");
-				this.OnstateHintCustomerChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_stateNameCustomer", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-	public string stateNameCustomer
-	{
-		get
-		{
-			return this._stateNameCustomer;
-		}
-		set
-		{
-			if ((this._stateNameCustomer != value))
-			{
-				this.OnstateNameCustomerChanging(value);
-				this.SendPropertyChanging();
-				this._stateNameCustomer = value;
-				this.SendPropertyChanged("stateNameCustomer");
-				this.OnstateNameCustomerChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_stateNameHost", DbType="VarChar(MAX)")]
-	public string stateNameHost
-	{
-		get
-		{
-			return this._stateNameHost;
-		}
-		set
-		{
-			if ((this._stateNameHost != value))
-			{
-				this.OnstateNameHostChanging(value);
-				this.SendPropertyChanging();
-				this._stateNameHost = value;
-				this.SendPropertyChanged("stateNameHost");
-				this.OnstateNameHostChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isShowCustomer", DbType="Int")]
-	public System.Nullable<int> isShowCustomer
-	{
-		get
-		{
-			return this._isShowCustomer;
-		}
-		set
-		{
-			if ((this._isShowCustomer != value))
-			{
-				this.OnisShowCustomerChanging(value);
-				this.SendPropertyChanging();
-				this._isShowCustomer = value;
-				this.SendPropertyChanged("isShowCustomer");
-				this.OnisShowCustomerChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isShowHost", DbType="Int")]
-	public System.Nullable<int> isShowHost
-	{
-		get
-		{
-			return this._isShowHost;
-		}
-		set
-		{
-			if ((this._isShowHost != value))
-			{
-				this.OnisShowHostChanging(value);
-				this.SendPropertyChanging();
-				this._isShowHost = value;
-				this.SendPropertyChanged("isShowHost");
-				this.OnisShowHostChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_stateHintHost", DbType="VarChar(MAX)")]
-	public string stateHintHost
-	{
-		get
-		{
-			return this._stateHintHost;
-		}
-		set
-		{
-			if ((this._stateHintHost != value))
-			{
-				this.OnstateHintHostChanging(value);
-				this.SendPropertyChanging();
-				this._stateHintHost = value;
-				this.SendPropertyChanged("stateHintHost");
-				this.OnstateHintHostChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_customerCheck", DbType="Int")]
-	public System.Nullable<int> customerCheck
-	{
-		get
-		{
-			return this._customerCheck;
-		}
-		set
-		{
-			if ((this._customerCheck != value))
-			{
-				this.OncustomerCheckChanging(value);
-				this.SendPropertyChanging();
-				this._customerCheck = value;
-				this.SendPropertyChanged("customerCheck");
-				this.OncustomerCheckChanged();
+				this._headPhoto = value;
+				this.SendPropertyChanged("headPhoto");
+				this.OnheadPhotoChanged();
 			}
 		}
 	}

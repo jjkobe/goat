@@ -24,7 +24,7 @@ public partial class historyOrder : System.Web.UI.Page
 
     protected void center_ServerClick(object sender, EventArgs e)
     {
-        Response.Redirect("~/profileContent.aspx");
+        Response.Redirect("~/profile.aspx");
     }
 
     protected void dataBind()
@@ -90,35 +90,13 @@ public partial class historyOrder : System.Web.UI.Page
         dataBind();
     }
 
-    private string getHeadPicById(int customerId)
+    protected void Button3_Click(object sender, EventArgs e)
     {
-        GoatDataContext lqdb = new GoatDataContext(ConfigurationManager.ConnectionStrings["GoatConnectionString"].ConnectionString.ToString());
-        var result = from r in lqdb.USER_PROFILE
-                     where r.userId == customerId
-                     select r;
-        USER_PROFILE user = result.FirstOrDefault();
-        string pic = user.headImage;
-        return pic;
-    }
-
-    protected void comsub_Click(object sender, EventArgs e)
-    {
-        string content = comment.Text.ToString();
-        int customerId = (int)Session["customerId"];
-        int houseId = (int)Session["houseId"];
-        GoatDataContext lqdb = new GoatDataContext(ConfigurationManager.ConnectionStrings["GoatConnectionString"].ConnectionString.ToString());
-        var result = from r in lqdb.COMMENT
-                     where r.houseId == houseId
-                     select r;
-        COMMENT com = new COMMENT();
-        com.houseId = houseId;
-        com.commentContent = content;
-        com.commentId = customerId;
-        string pis = getHeadPicById(customerId);
-        com.photo = pis;
-        string date = DateTime.Now.ToString();
-        com.commentDate = date;
-        lqdb.COMMENT.InsertOnSubmit(com);
-        lqdb.SubmitChanges();
+        Button button = (Button)sender;
+        int customerId = Convert.ToInt32(button.CommandArgument.ToString());
+        int houseId = Convert.ToInt32(button.CommandName.ToString());
+        Session["customerId"] = customerId;
+        Session["houseId"] = houseId;
+        Response.Redirect("~/addComment.aspx");
     }
 }

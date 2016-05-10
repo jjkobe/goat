@@ -68,11 +68,10 @@
                 <h2>
                     <button type="button" class="btn btn-warning btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">成为房东<span class="caret"></span></button>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
+                <li><a href="stepCheck.aspx">添加房源</a></li>
+                <li><a href="historyOrderHost.aspx">查看出租记录</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="resource.aspx">查看我的房源</a></li>
                     </ul>
                 </h2>
             </div>
@@ -94,11 +93,11 @@
             </div>
             <div>
                 <ul class="nav navbar-nav">
-                    <li><a href="#/home" style="padding-top: 6px; padding-bottom: 5px; font-size: 7px; color: #FFFFFF">个人中心</a></li>
-                    <li><a href="#/login" style="padding-top: 6px; padding-bottom: 5px; font-size: 7px; color: #FFFFFF">您的房源</a></li>
-                    <li><a href="#/register" style="padding-top: 6px; padding-bottom: 5px; font-size: 7px; color: #FFFFFF">您的旅程</a></li>
-                    <li><a href="#" style="padding-top: 6px; padding-bottom: 5px; font-size: 7px; color: #FFFFFF">心愿单</a></li>
-                    <li><a href="#" style="padding-top: 6px; padding-bottom: 5px; font-size: 7px; color: #FFFFFF">账户管理</a></li>
+                                   <li><a href="profile.aspx" style="padding-top: 6px; padding-bottom: 5px; font-size: 7px; color: #FFFFFF">个人中心</a></li>
+               <li><a href="resource.aspx" style="padding-top: 6px; padding-bottom: 5px; font-size: 7px; color: #FFFFFF">您的房源</a></li>
+               <li><a href="historyOrder.aspx" style="padding-top: 6px; padding-bottom: 5px; font-size: 7px; color: #FFFFFF">您的旅程</a></li>
+               <li><a href="likething.aspx" style="padding-top: 6px; padding-bottom: 5px; font-size: 7px; color: #FFFFFF">心愿单</a></li>
+               <li><a href="management.aspx" style="padding-top: 6px; padding-bottom: 5px; font-size: 7px; color: #FFFFFF">账户管理</a></li>
                 </ul>
             </div>
         </nav>

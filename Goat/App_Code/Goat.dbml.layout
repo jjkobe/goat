@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Goat">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 14.75" name="Goat">
   <DataContextMoniker Name="/GoatDataContext" />
   <nestedChildShapes>
     <classShape Id="366c380a-1b20-4c80-b286-57b8dda81cec" isExpanded="false" absoluteBounds="0.75, 0.75, 2, 0.45">
@@ -20,22 +20,16 @@
         <elementListCompartment Id="2bd72283-332c-4fc2-9e15-87b554493414" absoluteBounds="5.64, 4.46, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="e79287e9-38a3-4621-86b7-c6771a646031" isExpanded="false" absoluteBounds="3.25, 0.5, 2, 0.45">
+    <classShape Id="e79287e9-38a3-4621-86b7-c6771a646031" absoluteBounds="5.625, 1.25, 2, 2.3356245930989585">
       <DataClassMoniker Name="/GoatDataContext/USER_PROFILE" />
       <nestedChildShapes>
-        <elementListCompartment Id="3ce549ee-9d94-4ed2-bd2e-066ca215247d" absoluteBounds="3.2649999999999997, 0.96, 1.9700000000000002, 1.7756245930989585" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="3ce549ee-9d94-4ed2-bd2e-066ca215247d" absoluteBounds="5.64, 1.71, 1.9700000000000002, 1.7756245930989585" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="df590a1b-ecf0-45c2-a134-d2d19380fb54" isExpanded="false" absoluteBounds="5.625, 0.5, 2, 0.45">
       <DataClassMoniker Name="/GoatDataContext/REF_USER_HOUSEINFO" />
       <nestedChildShapes>
         <elementListCompartment Id="77b91b1d-6e51-4465-8c9a-5fbeee7282c1" absoluteBounds="5.64, 0.96, 1.9700000000000002, 1.393585205078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="f4e26ad4-9009-401b-b07e-b475496a54bf" isExpanded="false" absoluteBounds="5.375, 1.375, 2, 0.45">
-      <DataClassMoniker Name="/GoatDataContext/HOUSE_INFO" />
-      <nestedChildShapes>
-        <elementListCompartment Id="26c78e20-d38f-41bd-9ab3-0fbc447927c9" absoluteBounds="5.3900000000000006, 1.835, 1.9700000000000002, 13.045786539713541" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="1eedfb50-4630-4452-a6e1-3c4b715bddad" absoluteBounds="0.75, 5.5, 2, 2.1446048990885416">
@@ -54,6 +48,12 @@
       <DataClassMoniker Name="/GoatDataContext/HOUSE_ORDER" />
       <nestedChildShapes>
         <elementListCompartment Id="323d5467-b366-4449-9e0e-77186d901139" absoluteBounds="3.2649999999999997, 2.21, 1.9700000000000002, 3.685821533203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7d902d47-a41f-4b92-b2e7-6ef7050d2671" absoluteBounds="3.875, 0.5, 2, 13.987825927734376">
+      <DataClassMoniker Name="/GoatDataContext/HOUSE_INFO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1f742cc2-b08b-44b6-bd99-e68bedc2fe79" absoluteBounds="3.8899999999999997, 0.96, 1.9700000000000002, 13.427825927734375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

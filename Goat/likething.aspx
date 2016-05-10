@@ -70,11 +70,10 @@
                 <h2>
                     <button type="button" class="btn btn-warning btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">成为房东<span class="caret"></span></button>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
+                <li><a href="stepCheck.aspx">添加房源</a></li>
+                <li><a href="historyOrderHost.aspx">查看出租记录</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="resource.aspx">查看我的房源</a></li>
                     </ul>
                 </h2>
             </div>
@@ -98,11 +97,11 @@
             </div>
             <div>
                 <ul class="nav navbar-nav">
-                    <li><a href="#/home" style="padding-top: 6px; padding-bottom: 5px; font-size: 7px; color: #FFFFFF">个人中心</a></li>
-                    <li><a href="#/login" style="padding-top: 6px; padding-bottom: 5px; font-size: 7px; color: #FFFFFF">您的房源</a></li>
-                    <li><a href="#/register" style="padding-top: 6px; padding-bottom: 5px; font-size: 7px; color: #FFFFFF">您的旅程</a></li>
-                    <li><a href="#" style="padding-top: 6px; padding-bottom: 5px; font-size: 7px; color: #FFFFFF">心愿单</a></li>
-                    <li><a href="#" style="padding-top: 6px; padding-bottom: 5px; font-size: 7px; color: #FFFFFF">账户管理</a></li>
+               <li><a href="profile.aspx" style="padding-top: 6px; padding-bottom: 5px; font-size: 7px; color: #FFFFFF">个人中心</a></li>
+               <li><a href="resource.aspx" style="padding-top: 6px; padding-bottom: 5px; font-size: 7px; color: #FFFFFF">您的房源</a></li>
+               <li><a href="historyOrder.aspx" style="padding-top: 6px; padding-bottom: 5px; font-size: 7px; color: #FFFFFF">您的旅程</a></li>
+               <li><a href="likething.aspx" style="padding-top: 6px; padding-bottom: 5px; font-size: 7px; color: #FFFFFF">心愿单</a></li>
+               <li><a href="management.aspx" style="padding-top: 6px; padding-bottom: 5px; font-size: 7px; color: #FFFFFF">账户管理</a></li>
                 </ul>
             </div>
         </nav>
@@ -217,26 +216,95 @@
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/about.js"></script>
     <script src="scripts/controllers/login.js"></script>
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=1354cd4373db412aedb24c0f1286ca78"></script>
+
     <script>
+        var map = new AMap.Map('mapDiv');
+
+        var mycontent;
+
+        map.setZoom(15);
+
+        map.setCenter([116.39, 39.9]);
+
+        var infoWindow = new AMap.InfoWindow({
+
+            offset: new AMap.Pixel(0, -30)
+
+        });
+
+        function setMarker(a, b, c) {
+
+            var marker = new AMap.Marker({ position: [a, b], map: map });
+
+            marker.content = c.join("<br/>");
+
+            marker.on('click', markerclick);
+
+        }
+
+        function markerclick(e) {
+
+            infoWindow.setContent(e.target.content);
+
+            infoWindow.open(map, e.target.getPosition());
+
+        }
+
         $(function () {
+
             $("#list a").click(function () {
+
                 $("#listDiv").show();
+
                 $("#mapDiv").hide();
+
             });
+
             $("#map a").click(function () {
+
                 $("#listDiv").hide();
+
                 $("#mapDiv").show();
+
+                map.clearMap();
+
                 $.ajax({
+
                     url: "likething.aspx/getLocation",
+
                     type: "post",
+
                     dataType: "json",
+
                     contentType: "application/json;charset=utf-8",
-                    data:{},
+
+                    data: {},
+
                     success: function (data) {
-                        console.log(data.d);
+
+                        var t = JSON.parse(data.d);
+
+                        map.setCenter([t.location[0].lng, t.location[0].lat]);
+
+                        for (var i = 0; i < t.location.length; i++) {
+
+                            mycontent = [];
+
+                            mycontent.push("房屋："+t.location[i].name);
+
+                            mycontent.push("价格:￥"+t.location[i].price);
+
+                            setMarker(t.location[i].lng, t.location[i].lat, mycontent);
+
+                        }
+
                     }
+
                 });
+
             });
+
         })
     </script>
 </body>
