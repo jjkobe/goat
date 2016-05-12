@@ -13,7 +13,6 @@ public partial class housePublish1 : System.Web.UI.Page
        
         if (!IsPostBack)
         {
-            Session["houseId"] = 3;
             stepCheck();
             int houseId = (int)Session["houseId"];
             GoatDataContext lqdb = new GoatDataContext(ConfigurationManager.ConnectionStrings["GoatConnectionString"].ConnectionString.ToString());
